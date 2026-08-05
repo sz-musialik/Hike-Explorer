@@ -1,0 +1,43 @@
+.navbar {
+	width: 100%;
+	height: 3rem;
+	background-color: red;
+
+	display: flex;
+	align-items: center;
+}
+
+.navbar-item {
+	height: 2rem;
+	min-width: 2rem;
+	padding: 0.25rem 2rem;
+	margin: 0 3rem;
+	background-color: royalblue;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	color: white;
+	transition: color 0.5s ease 0s;
+}
+
+.navbar-item:hover {
+	color: powderblue;
+	cursor: pointer;
+}
+
+.navbar-item-span {
+	font-weight: bolder;
+}
+
+.navbar-item img {
+	width: 2.5em;
+	filter: none;
+	transition: filter 0.5s ease 0s;
+}
+
+.navbar-item:hover img {
+	filter: invert(0.5) sepia(1) hue-rotate(200deg);
+}
+

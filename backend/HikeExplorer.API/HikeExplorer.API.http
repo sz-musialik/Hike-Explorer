@@ -1,0 +1,6 @@
+@HikeExplorer.API_HostAddress = http://localhost:5133
+
+GET {{HikeExplorer.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
