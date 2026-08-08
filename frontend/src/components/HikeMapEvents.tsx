@@ -1,3 +1,4 @@
+import type { Dispatch, SetStateAction } from 'react';
 import { useMapEvents } from 'react-leaflet';
 
 interface HikingPeak {
@@ -19,7 +20,11 @@ interface HikingPath {
 	coordinates: Coordinate[];
 }
 
-const HikeMapEvents = () => {
+interface HikeMapEventsProps {
+	setPeaks: Dispatch<SetStateAction<HikingPeak[]>>;
+}
+
+const HikeMapEvents = ({ setPeaks }: HikeMapEventsProps) => {
 	useMapEvents({
 		async click(event) {
 			const lat = event.latlng.lat;
@@ -34,6 +39,8 @@ const HikeMapEvents = () => {
 				const data: HikingPeak[] = await response.json();
 				console.log(data);
 				console.log(response.status);
+
+				setPeaks(data);
 			} catch (error) {
 				console.error("Error fetching data: ", error);
 			}
