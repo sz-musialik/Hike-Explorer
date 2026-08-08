@@ -1,0 +1,19 @@
+.current-weather-container {
+	width: 100%;
+	height: 40%;
+	background-color: royalblue;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.current-weather-icon-container img {
+	width: 256px;
+}
+
+.current-temp {
+	font-size: 3rem;
+	font-weight: bolder;
+}

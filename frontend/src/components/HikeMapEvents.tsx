@@ -34,7 +34,6 @@ const HikeMapEvents = ({ setPeaks }: HikeMapEventsProps) => {
 
 			try {
 				const response = await fetch(`http://127.0.0.1:5133/api/peaks?lat=${lat}&lng=${lng}&radius=10000`)
-				// const response = await fetch(`http://127.0.0.1:5133/api/paths?lat=${lat}&lng=${lng}&radius=10000`)
 
 				const data: HikingPeak[] = await response.json();
 				console.log(data);

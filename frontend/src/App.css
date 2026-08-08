@@ -36,7 +36,7 @@
 	flex-wrap: wrap;
 }
 
-.map-container, .hike-info-container, .location-info-container {
+.map-container, .hike-info-container, .weather-info-container {
 	margin: 8px;
 	padding: 8px;
 
@@ -62,7 +62,7 @@
 	background-color: slateblue;
 }
 
-.location-info-container {
+.weather-info-container {
 	margin-left: 0;
 
 	height: calc(100% - 32px);

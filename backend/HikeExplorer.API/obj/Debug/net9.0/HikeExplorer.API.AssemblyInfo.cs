@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HikeExplorer.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+420bf736bc0d6407d442f635c851d7a55e61a592")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+67fdb7081af16adfc2da9af80c491164bbc131e3")]
 [assembly: System.Reflection.AssemblyProductAttribute("HikeExplorer.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HikeExplorer.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

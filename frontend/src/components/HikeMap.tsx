@@ -5,6 +5,7 @@ import HikeMapEvents from './HikeMapEvents.tsx';
 import { useState } from 'react';
 import L from 'leaflet';
 import peakIcon from '../assets/peak-icon.png';
+import type { Dispatch, SetStateAction } from 'react';
 
 interface HikingPeak {
 	id: number;
@@ -25,7 +26,11 @@ interface HikingPath {
 	coordinates: Coordinate[];
 }
 
-const Map = () => {
+interface HikeMapProps {
+	setSelectedPeak: Dispatch<SetStateAction<HikingPeak | null>>;
+}
+
+const Map = ( {setSelectedPeak}: HikeMapProps ) => {
 	const [peaks, setPeaks] = useState<HikingPeak[]>([]);
 	const [paths, setPaths] = useState<HikingPath[]>([]);
 	const iconSize:number = 16;
@@ -37,19 +42,19 @@ const Map = () => {
 	});
 
 	const getPaths = async (lat: number, lng: number) => {
-			console.log("Lat: ", lat, " Lng: ", lng);
+		console.log("Lat: ", lat, " Lng: ", lng);
 
-			try {
-				const response = await fetch(`http://127.0.0.1:5133/api/paths?lat=${lat}&lng=${lng}&radius=2000`)
+		try {
+			const response = await fetch(`http://127.0.0.1:5133/api/paths?lat=${lat}&lng=${lng}&radius=2000`)
 
-				const data: HikingPath[] = await response.json();
-				console.log(data);
-				console.log(response.status);
+			const data: HikingPath[] = await response.json();
+			console.log(data);
+			console.log(response.status);
 
-				setPaths(data);
-			} catch (error) {
-				console.error("Error fetching data: ", error);
-			}
+			setPaths(data);
+		} catch (error) {
+			console.error("Error fetching data: ", error);
+		}
 	}
 
 	return (
@@ -71,7 +76,10 @@ const Map = () => {
 					position={[peak.latitude, peak.longitude]}
 					icon={peakMarkerIcon}
 					eventHandlers={{
-						click: () => getPaths(peak.latitude, peak.longitude),
+						click: () => {
+							getPaths(peak.latitude, peak.longitude)
+							setSelectedPeak(peak)
+						},
 					}}
 				>
 					<Tooltip>

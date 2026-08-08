@@ -1,0 +1,29 @@
+.future-weather-container {
+	width: 100%;
+	height: 35%;
+	background-color: red;
+}
+
+.daytime-container {
+	width: 100%;
+	height: 20%;
+	background-color: peru;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.daytime-item {
+	display: flex;
+	flex-direction: column;
+}
+
+.daytime-icon {
+	width: 16px;
+}
+
+.daytime-item-label {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
