@@ -1,6 +1,7 @@
 import './FutureWeatherChart.css';
 import sunIcon from '../assets/sun-icon.svg';
 import moonIcon from '../assets/moon-icon.svg';
+import TemperatureChart from './TemperatureChart.tsx';
 import type { DailyWeather, HourlyWeather } from '../types/weather';
 
 interface FutureWeatherChartProps {
@@ -39,7 +40,7 @@ const FutureWeatherChart = ({dayWeather, hourWeather}: FutureWeatherChartProps) 
 			</div>
 
 			<div className='weather-chart-container'>
-
+				<TemperatureChart hourWeather={hourWeather}/>
 			</div>
 		</div>
 	)

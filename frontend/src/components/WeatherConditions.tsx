@@ -11,17 +11,21 @@ const WeatherConditions = ({dayWeather, currWeather}: WeatherConditionsProps) =>
 		return null;
 	}
 
+	const getVisibilityInKm = () => {
+		return currWeather.visibility / 1000;
+	}
+
 	return (
 		<div className='weather-conditions-container'>
 			<div className='conditions-container'>
 				<div className='conditions-wind-container'>
 					<span>Wind</span>
-					<span>{dayWeather.maxWindSpeed}km/h</span>
+					<span>{dayWeather.maxWindSpeed} km/h</span>
 				</div>
 
 				<div className='conditions-wind-container'>
 					<span>Wind gusts</span>
-					<span>{dayWeather.maxGustSpeed}km/h</span>
+					<span>{dayWeather.maxGustSpeed} km/h</span>
 				</div>
 			</div>
 
@@ -37,7 +41,7 @@ const WeatherConditions = ({dayWeather, currWeather}: WeatherConditionsProps) =>
 
 			<div className='conditions-container'>
 				<span>Visibility</span>
-				<span>{currWeather.visibility}km</span>
+				<span>{getVisibilityInKm()} km</span>
 			</div>
 
 			<div className='conditions-container'>
