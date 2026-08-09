@@ -2,7 +2,7 @@
 
 import './TemperatureChart.css';
 import type { HourlyWeather } from '../types/weather';
-import { ComposedChart, Bar, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { ComposedChart, Bar, Area, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 
 interface TemperatureChartProps {
 	hourWeather: HourlyWeather[] | null;
