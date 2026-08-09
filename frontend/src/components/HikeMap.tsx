@@ -6,6 +6,7 @@ import { useState } from 'react';
 import L from 'leaflet';
 import peakIcon from '../assets/peak-icon.png';
 import type { Dispatch, SetStateAction } from 'react';
+import type { WeatherResponse } from '../types/weather.ts';
 
 interface HikingPeak {
 	id: number;
@@ -28,9 +29,10 @@ interface HikingPath {
 
 interface HikeMapProps {
 	setSelectedPeak: Dispatch<SetStateAction<HikingPeak | null>>;
+	setWeather: Dispatch<SetStateAction<WeatherResponse | null>>;
 }
 
-const Map = ( {setSelectedPeak}: HikeMapProps ) => {
+const Map = ( {setSelectedPeak, setWeather}: HikeMapProps ) => {
 	const [peaks, setPeaks] = useState<HikingPeak[]>([]);
 	const [paths, setPaths] = useState<HikingPath[]>([]);
 	const iconSize:number = 16;
@@ -41,17 +43,32 @@ const Map = ( {setSelectedPeak}: HikeMapProps ) => {
 		iconAnchor: [iconSize / 2, iconSize / 2],
 	});
 
-	const getPaths = async (lat: number, lng: number) => {
-		console.log("Lat: ", lat, " Lng: ", lng);
-
+	const GetPaths = async (lat: number, lng: number) => {
 		try {
 			const response = await fetch(`http://127.0.0.1:5133/api/paths?lat=${lat}&lng=${lng}&radius=2000`)
 
 			const data: HikingPath[] = await response.json();
-			console.log(data);
-			console.log(response.status);
-
+			// console.log(data);
+			// console.log(response.status);
 			setPaths(data);
+		} catch (error) {
+			console.error("Error fetching data: ", error);
+		}
+	}
+
+	const GetWeather = async (lat: number, lng: number) => {
+		console.log("Lat: ", lat, " Lng: ", lng);
+
+		try {
+			const response = await fetch(`http://127.0.0.1:5133/api/weather?lat=${lat}&lng=${lng}`)
+
+			if (!response.ok) {
+				throw new Error(`Weather request failed: ${response.status}`);
+			}
+
+			const data: WeatherResponse = await response.json();
+			// console.log("Weather data: ", data);
+			setWeather(data);
 		} catch (error) {
 			console.error("Error fetching data: ", error);
 		}
@@ -77,8 +94,9 @@ const Map = ( {setSelectedPeak}: HikeMapProps ) => {
 					icon={peakMarkerIcon}
 					eventHandlers={{
 						click: () => {
-							getPaths(peak.latitude, peak.longitude)
+							GetPaths(peak.latitude, peak.longitude)
 							setSelectedPeak(peak)
+							GetWeather(peak.latitude, peak.longitude)
 						},
 					}}
 				>

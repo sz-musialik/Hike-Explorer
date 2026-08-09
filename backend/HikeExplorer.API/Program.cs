@@ -8,6 +8,7 @@ builder.Services.AddOpenApi();
 builder.Services.AddControllers();
 
 builder.Services.AddHttpClient<OverpassService>();
+builder.Services.AddHttpClient<WeatherService>();
 
 builder.Services.AddCors(options =>
 {

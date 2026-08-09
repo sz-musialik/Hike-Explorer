@@ -9,17 +9,6 @@ interface HikingPeak {
 	elevation?: string;
 }
 
-interface Coordinate {
-	lat: number;
-	lng: number;
-}
-
-interface HikingPath {
-	id: number;
-	name?: string;
-	coordinates: Coordinate[];
-}
-
 interface HikeMapEventsProps {
 	setPeaks: Dispatch<SetStateAction<HikingPeak[]>>;
 }
