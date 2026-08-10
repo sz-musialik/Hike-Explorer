@@ -36,7 +36,7 @@ const TemperatureChart = ({hourWeather}: TemperatureChartProps) => {
 				<XAxis 
 					dataKey="timePoint"
 					tickFormatter={formatHour}
-					interval={4}
+					interval={8}
 					tick={{ fill: '#000000' }}
 				/>
 
@@ -45,6 +45,7 @@ const TemperatureChart = ({hourWeather}: TemperatureChartProps) => {
 					orientation="left"
 					unit="°C"
 					tick={{ fill: '#000000' }}
+					domain={["auto", "auto"]}
 				/>
 
 				<YAxis

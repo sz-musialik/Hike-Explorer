@@ -1,25 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "/app/HikeExplorer.API/HikeExplorer.API.csproj": {}
+    "C:\\Coding\\CS\\hike-explorer\\backend\\HikeExplorer.API\\HikeExplorer.API.csproj": {}
   },
   "projects": {
-    "/app/HikeExplorer.API/HikeExplorer.API.csproj": {
+    "C:\\Coding\\CS\\hike-explorer\\backend\\HikeExplorer.API\\HikeExplorer.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/app/HikeExplorer.API/HikeExplorer.API.csproj",
+        "projectUniqueName": "C:\\Coding\\CS\\hike-explorer\\backend\\HikeExplorer.API\\HikeExplorer.API.csproj",
         "projectName": "HikeExplorer.API",
-        "projectPath": "/app/HikeExplorer.API/HikeExplorer.API.csproj",
-        "packagesPath": "/root/.nuget/packages/",
-        "outputPath": "/app/HikeExplorer.API/obj/",
+        "projectPath": "C:\\Coding\\CS\\hike-explorer\\backend\\HikeExplorer.API\\HikeExplorer.API.csproj",
+        "packagesPath": "C:\\Users\\maste\\.nuget\\packages\\",
+        "outputPath": "C:\\Coding\\CS\\hike-explorer\\backend\\HikeExplorer.API\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/root/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\maste\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -68,7 +75,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.316/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.308/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

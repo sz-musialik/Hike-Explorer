@@ -54,10 +54,24 @@ public class OverpassService
 			form
 		);
 
+		if (!response.IsSuccessStatusCode)
+		{
+			var errorBody = await response.Content.ReadAsStringAsync();
+
+			Console.WriteLine(
+				$"Overpass Api: error: {(int)response.StatusCode} {response.StatusCode}"
+			);
+
+			Console.WriteLine(errorBody);
+
+			throw new OverpassException(
+				$"Overpass Api returned: {(int)response.StatusCode} ({response.StatusCode}).",
+				(int)response.StatusCode
+			);
+		}
+
 		// JSON Response
 		var json = await response.Content.ReadAsStringAsync();
-
-		// Console.WriteLine(json);
 
 		// Data deserialization
 		var overpassResponse = JsonSerializer.Deserialize<OverpassResponse>(json) ?? new OverpassResponse();
@@ -112,6 +126,22 @@ public class OverpassService
 			"https://overpass-api.de/api/interpreter",
 			form
 		);
+
+		if (!response.IsSuccessStatusCode)
+		{
+			var errorBody = await response.Content.ReadAsStringAsync();
+
+			Console.WriteLine(
+				$"Overpass Api: error: {(int)response.StatusCode} {response.StatusCode}"
+			);
+
+			Console.WriteLine(errorBody);
+
+			throw new OverpassException(
+				$"Overpass Api returned: {(int)response.StatusCode} ({response.StatusCode}).",
+				(int)response.StatusCode
+			);
+		}
 
 		// JSON Response
 		var json = await response.Content.ReadAsStringAsync();

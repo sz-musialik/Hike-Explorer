@@ -14,9 +14,14 @@ interface HikingPeak {
 	elevation?: string;
 }
 
+interface ElevationResponse {
+	elevation: number[];
+}
+
 function App() {
 	const [selectedPeak, setSelectedPeak] = useState<HikingPeak | null>(null);
 	const [weather, setWeather] = useState<WeatherResponse | null>(null);
+	const [elevation, setElevation] = useState<ElevationResponse | null>(null);
 
   return (
     <div className='main-container'>
@@ -25,11 +30,11 @@ function App() {
 			<div className='main-content-container'>
 				<div className='main-left'>
 					<div className='map-container'>
-						<HikeMap setSelectedPeak={setSelectedPeak} setWeather={setWeather} />
+						<HikeMap setSelectedPeak={setSelectedPeak} setWeather={setWeather} setElevation={setElevation} />
 					</div>
 
 					<div className='hike-info-container'>
-						<HikeInfo />
+						<HikeInfo elevation={elevation} />
 					</div>
 				</div>
 

@@ -16,21 +16,28 @@ interface HikeMapEventsProps {
 const HikeMapEvents = ({ setPeaks }: HikeMapEventsProps) => {
 	useMapEvents({
 		async click(event) {
+			// Ignore if tried to click a path
+			const target = event.originalEvent.target as HTMLElement;
+
+			if (target.classList.contains('leaflet-interactive')) {
+				return;
+			}
+
 			const lat = event.latlng.lat;
 			const lng = event.latlng.lng;
-
-			console.log("Lat: ", lat, " Lng: ", lng);
 
 			try {
 				const response = await fetch(`http://127.0.0.1:5133/api/peaks?lat=${lat}&lng=${lng}&radius=10000`)
 
+				if (!response.ok) {
+					throw new Error(`Peaks request failed: ${response.status}`);
+				}
+
 				const data: HikingPeak[] = await response.json();
-				console.log(data);
-				console.log(response.status);
 
 				setPeaks(data);
 			} catch (error) {
-				console.error("Error fetching data: ", error);
+				console.error("Error fetching peaks: ", error);
 			}
 		},
 	});

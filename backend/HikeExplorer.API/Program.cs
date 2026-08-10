@@ -9,6 +9,7 @@ builder.Services.AddControllers();
 
 builder.Services.AddHttpClient<OverpassService>();
 builder.Services.AddHttpClient<WeatherService>();
+builder.Services.AddHttpClient<ElevationService>();
 
 builder.Services.AddCors(options =>
 {

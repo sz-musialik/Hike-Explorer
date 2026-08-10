@@ -27,15 +27,21 @@ interface HikingPath {
 	coordinates: Coordinate[];
 }
 
+interface ElevationResponse {
+	elevation: number[];
+}
+
 interface HikeMapProps {
 	setSelectedPeak: Dispatch<SetStateAction<HikingPeak | null>>;
 	setWeather: Dispatch<SetStateAction<WeatherResponse | null>>;
+	setElevation: Dispatch<SetStateAction<ElevationResponse | null>>;
 }
 
-const Map = ( {setSelectedPeak, setWeather}: HikeMapProps ) => {
+const Map = ( {setSelectedPeak, setWeather, setElevation}: HikeMapProps ) => {
 	const [peaks, setPeaks] = useState<HikingPeak[]>([]);
 	const [paths, setPaths] = useState<HikingPath[]>([]);
 	const iconSize:number = 16;
+	const maxElevationPoints = 100;
 
 	const peakMarkerIcon = L.icon({
 		iconUrl: peakIcon,
@@ -47,9 +53,12 @@ const Map = ( {setSelectedPeak, setWeather}: HikeMapProps ) => {
 		try {
 			const response = await fetch(`http://127.0.0.1:5133/api/paths?lat=${lat}&lng=${lng}&radius=2000`)
 
+			if (!response.ok) {
+				throw new Error(`Paths request failed: ${response.status}`);
+			}
+
 			const data: HikingPath[] = await response.json();
-			// console.log(data);
-			// console.log(response.status);
+
 			setPaths(data);
 		} catch (error) {
 			console.error("Error fetching data: ", error);
@@ -67,10 +76,48 @@ const Map = ( {setSelectedPeak, setWeather}: HikeMapProps ) => {
 			}
 
 			const data: WeatherResponse = await response.json();
-			// console.log("Weather data: ", data);
+
 			setWeather(data);
 		} catch (error) {
 			console.error("Error fetching data: ", error);
+		}
+	}
+
+	const GetPathElevation = async (path: HikingPath) => {
+		const coordinates = path.coordinates;
+		let selectedCoordinates = coordinates;
+
+		// Limiting the points sent in the Api request to maxElevationPoints
+		if (coordinates.length > maxElevationPoints) {
+			const step = (coordinates.length - 1) / (maxElevationPoints - 1);
+
+			selectedCoordinates = Array.from(
+				{ length: maxElevationPoints },
+				(_, index) => coordinates[Math.round(index * step)]
+			);
+		}
+
+		try {
+			const latitudes = selectedCoordinates
+				.map((coordinate) => coordinate.latitude)
+				.join(',')
+
+			const longitudes = selectedCoordinates
+				.map((coordinate) => coordinate.longitude)
+				.join(',')
+
+			const response = await fetch(`http://127.0.0.1:5133/api/elevation?latitude=${latitudes}&longitude=${longitudes}`)
+
+			if (!response.ok) {
+				throw new Error(`Elevation request failed: ${response.status}`);
+			}
+
+			const data: ElevationResponse = await response.json();
+
+			setElevation(data);
+		} catch (error) {
+			console.error("Error fetching Elevation data: ", error);
+		} finally {
 		}
 	}
 
@@ -114,6 +161,14 @@ const Map = ( {setSelectedPeak, setWeather}: HikeMapProps ) => {
 						coordinate.longitude,
 					])}
 					color='red'
+					eventHandlers={{
+						click: () => {
+							// Disable fetching new peaks from Api
+							// L.DomEvent.stopPropagation(event.originalEvent);
+							console.log("Path Click");
+							GetPathElevation(path)
+						}
+					}}
 				/>
 			))}
 

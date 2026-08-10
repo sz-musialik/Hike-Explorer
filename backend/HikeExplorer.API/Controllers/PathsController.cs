@@ -19,8 +19,15 @@ public class PathsController : ControllerBase
 		int radius
 	)
 	{
-		var result = await _overpassService.GetPaths(lat, lng, radius);
+		try
+		{
+			var result = await _overpassService.GetPaths(lat, lng, radius);
 
-		return Ok(result);
+			return Ok(result);
+		}
+		catch (OverpassException ex)
+		{
+			return StatusCode(ex.StatusCode, new { message = ex.Message });
+		}
 	}
 }

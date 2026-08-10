@@ -1,8 +1,19 @@
 import './HikeInfo.css';
+import ElevationChart from './ElevationChart';
 
-const HikeInfo = () => {
+interface ElevationResponse {
+	elevation: number[];
+}
+
+interface HikeInfoProps {
+	elevation: ElevationResponse | null;
+}
+
+const HikeInfo = ( {elevation}: HikeInfoProps ) => {
 	return (
-		<div>test2</div>
+		<div className='elevation-chart-container'>
+			<ElevationChart elevation={elevation} />
+		</div>
 	)
 }
 export default HikeInfo;
