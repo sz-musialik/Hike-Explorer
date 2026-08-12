@@ -16,8 +16,6 @@ public class ElevationService
 
 	public async Task<ElevationResponseDto> GetElevation(ElevationRequestDto request)
 	{
-		Console.WriteLine("ElevationService.GetElevation START");
-
 		if (request.Latitudes.Count != request.Longitudes.Count)
 		{
 			throw new ArgumentException(
@@ -43,18 +41,13 @@ public class ElevationService
 			$"?latitude={latitudeQuery}" +
 			$"&longitude={longitudeQuery}";
 
-		Console.WriteLine("=================================");
-		Console.WriteLine();
-		Console.WriteLine(query);
-		Console.WriteLine();
-
 		var response = await _httpClient.GetAsync(query);
 
 		response.EnsureSuccessStatusCode();
 
 		var json = await response.Content.ReadAsStringAsync();
 
-		Console.WriteLine(json);
+		// Console.WriteLine(json);
 
 		var openMeteoResponse = JsonSerializer.Deserialize<ElevationResponse>(json)
 			?? new ElevationResponse();

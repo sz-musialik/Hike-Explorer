@@ -18,9 +18,6 @@ interface WeatherInfoProps {
 }
 
 const WeatherInfo = ( {selectedPeak, weather}: WeatherInfoProps ) => {
-
-
-
 	if (!selectedPeak) {
 		return (
 			<div>Select a Peak!</div>

@@ -48,7 +48,6 @@ const WeatherConditions = ({dayWeather, currWeather}: WeatherConditionsProps) =>
 				<span>UV index</span>
 				<span>{dayWeather.uvIndex}</span>
 			</div>
-
 		</div>
 	)
 }

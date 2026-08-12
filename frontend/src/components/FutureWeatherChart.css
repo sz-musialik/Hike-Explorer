@@ -1,13 +1,13 @@
 .future-weather-container {
 	width: 100%;
 	height: 35%;
-	background-color: red;
+	/* background-color: red; */
 }
 
 .daytime-container {
 	width: 100%;
 	height: 20%;
-	background-color: peru;
+	/* background-color: peru; */
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -15,20 +15,35 @@
 
 .daytime-item {
 	display: flex;
-	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 .daytime-icon {
-	width: 16px;
+	width: 24px;
+	margin: 12px;
 }
 
-.daytime-item-label {
+.daytime-item-text {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex-direction: column;
+
+	color: var(--color-soft-cream);
+}
+
+.daytime-item-text span {
+	margin: 2px 0;
 }
 
 .weather-chart-container {
 	width: 100%;
 	height: 80%;
+}
+
+.daytime-item-label {
+	font-weight: 600;
+
+	color: var(--color-warm-white);
 }

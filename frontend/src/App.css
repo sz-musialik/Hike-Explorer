@@ -1,25 +1,28 @@
 .main-container {
 	width: 100%;
 	height: 100vh;
+
+	background: var(--color-background);
+	background: radial-gradient(circle,var(--color-background) 80%, var(--color-background-soft) 100%);
+	color: var(--color-text);
+
 	display: flex;
-	flex-wrap: wrap;
 	justify-content: center;
+	align-items: center;
 }
 
 .main-content-container {
-	width: 80%;
-	height: calc(100% - 3rem);
-
-	background-color: royalblue;
+	width: 100%;
+	height: 100%;
 
 	display: flex;
+	flex-wrap: wrap;
 }
 
 .main-left {
 	width: 70%;
 	height: 100%;
 
-	background-color: peru;
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
@@ -29,11 +32,22 @@
 	width: 30%;
 	height: 100%;
 
-	background-color:indianred;
-
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
+}
+
+/* Stacking containers on top of eachother for mobile devices */
+@media (max-width: 800px) {
+	.main-left,
+	.main-right {
+			width: 100%;
+	}
+
+	.main-right {
+		margin-top: -8px;
+		margin-left: 8px;
+	}
 }
 
 .map-container, .hike-info-container, .weather-info-container {
@@ -51,7 +65,7 @@
 
 	margin-top: 0;
 
-	background-color: purple;
+	background-color: var(--color-light-green);
 }
 
 .map-container {
@@ -59,7 +73,7 @@
 	height: calc(65% - 32px);
 	width: 100%;
 
-	background-color: slateblue;
+	background-color: var(--color-dark-blue);
 }
 
 .weather-info-container {
@@ -68,5 +82,7 @@
 	height: calc(100% - 32px);
 	width: 100%;
 
-	background-color: skyblue;
+	background-color: var(--color-dark-orange);
+	/* display: flex; */
+	/* justify-content: center; */
 }

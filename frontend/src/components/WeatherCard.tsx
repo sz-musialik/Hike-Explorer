@@ -14,7 +14,6 @@ const WeatherCard = () => {
 
 			<div className='weather-card-item'>
 				<span className='weather-temperature'>20 °C</span>
-
 			</div>
 		</div>
 	)

@@ -75,32 +75,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\maste\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "/root/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Coding\\CS\\hike-explorer\\backend\\HikeExplorer.API\\HikeExplorer.API.csproj",
+      "projectUniqueName": "/app/HikeExplorer.API/HikeExplorer.API.csproj",
       "projectName": "HikeExplorer.API",
-      "projectPath": "C:\\Coding\\CS\\hike-explorer\\backend\\HikeExplorer.API\\HikeExplorer.API.csproj",
-      "packagesPath": "C:\\Users\\maste\\.nuget\\packages\\",
-      "outputPath": "C:\\Coding\\CS\\hike-explorer\\backend\\HikeExplorer.API\\obj\\",
+      "projectPath": "/app/HikeExplorer.API/HikeExplorer.API.csproj",
+      "packagesPath": "/root/.nuget/packages/",
+      "outputPath": "/app/HikeExplorer.API/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\maste\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/root/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -149,7 +141,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.308/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.316/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

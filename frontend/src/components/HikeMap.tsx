@@ -125,7 +125,7 @@ const Map = ( {setSelectedPeak, setWeather, setElevation}: HikeMapProps ) => {
 		<MapContainer
 			center={[50.061, 19.937]}
 			zoom={13}
-			style={{ height: '100%', width: '100%' }}
+			style={{ height: '100%', width: '100%', borderRadius: '0.25rem', overflow: 'hidden' }}
 		>
 			<TileLayer
 				attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

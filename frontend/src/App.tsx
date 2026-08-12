@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css';
-import Navbar from './components/Navbar.tsx';
+// import Navbar from './components/Navbar.tsx';
 import HikeInfo from './components/HikeInfo.tsx';
 import HikeMap from './components/HikeMap.tsx';
 import WeatherInfo from './components/WeatherInfo.tsx';
@@ -25,8 +25,6 @@ function App() {
 
   return (
     <div className='main-container'>
-			<Navbar />
-
 			<div className='main-content-container'>
 				<div className='main-left'>
 					<div className='map-container'>

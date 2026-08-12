@@ -1,5 +1,51 @@
 @import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
 
+:root {
+	/* Mauve */
+	--color-dusty-mauve: #8a737d;
+	--color-pale-mauve: #d2c4c4;
+	--color-deep-mauve: #6f5b65;
+
+	/* Warm Rose */
+	--color-dusty-rose: #d2b0a2;
+	--color-pale-rose: #e4c9bd;
+	--color-deep-rose: #b89284;
+
+	/* Sage */
+	--color-muted-sage: #9f9a7f;
+	--color-pale-sage: #b5b19a;
+	--color-deep-sage: #858067;
+
+	/* Neutrals */
+	--color-warm-white: #fffdfb;
+	--color-soft-cream: #fdf0e7;
+	--color-light-taupe: #e2d8d5;
+	--color-taupe: #c8bab6;
+
+	--color-pale-red: #a66f70;
+
+	/* Green */
+	--color-dark-green: #4a5952;
+	--color-green: #7d8d80;
+	--color-light-green: #bbc7b3;
+
+	/* Orange */
+	--color-dark-orange: #c68567;
+	--color-orange: #d4a281;
+
+	/* Blue */
+	--color-dark-blue: #455b61;
+	--color-blue: #6f8588;
+	--color-light-blue: #aebfc0;
+	--color-pale-blue: #d5dfde;
+
+	/* Plum */
+	--color-dark-plum: #62535b;
+	--color-plum: #806d76;
+	--color-light-plum: #b9a9ae;
+	--color-pale-plum: #ddd3d5;
+}
+
 body {
 	font-family: "Google Sans";
 	font-optical-sizing: auto;

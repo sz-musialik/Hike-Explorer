@@ -23,19 +23,19 @@ const FutureWeatherChart = ({dayWeather, hourWeather}: FutureWeatherChartProps) 
 		<div className='future-weather-container'>
 			<div className='daytime-container'>
 				<div className='daytime-item'>
-					<div className='daytime-item-label'>
-						<span>Sunrise</span>
-						<img src={sunIcon} className='daytime-icon'></img>
+					<div className='daytime-item-text'>
+						<span className='daytime-item-label'>Sunrise</span>
+						<span>{getTimeFormat(dayWeather?.sunrise)}</span>
 					</div>
-					<span>{getTimeFormat(dayWeather?.sunrise)}</span>
+					<img src={sunIcon} className='daytime-icon'></img>
 				</div>
 
 				<div className='daytime-item'>
-					<div className='daytime-item-label'>
-						<img src={moonIcon} className='daytime-icon'></img>
-						<span>Sunset</span>
+					<img src={moonIcon} className='daytime-icon'></img>
+					<div className='daytime-item-text'>
+						<span className='daytime-item-label'>Sunset</span>
+						<span>{getTimeFormat(dayWeather?.sunset)}</span>
 					</div>
-					<span>{getTimeFormat(dayWeather?.sunset)}</span>
 				</div>
 			</div>
 

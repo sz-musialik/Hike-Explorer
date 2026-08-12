@@ -44,8 +44,10 @@ const ElevationChart = ( {elevation}: ElevationChartProps ) => {
 					name="Height"
 					type="monotone"
 					dataKey="height"
-					stroke="#0000ff"
-					fill="#0000ff"
+					// stroke="var(--color-light-green)"
+					// fill="var(--color-light-green)"
+					stroke='var(--color-dark-green)'
+					fill='var(--color-green)'
 					fillOpacity={0.5}
 				/>
 
@@ -64,6 +66,12 @@ const ElevationChart = ( {elevation}: ElevationChartProps ) => {
 
 				<Tooltip
 					labelFormatter={() => ''}
+					contentStyle={{
+						borderRadius: '0.25em',
+						borderColor: 'var(--color-dark-green)',
+						borderWidth: '2px',
+					}}
+					itemStyle ={{ color: "#000000" }}
 				/>
 			</AreaChart>
 		</ResponsiveContainer>
