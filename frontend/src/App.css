@@ -38,14 +38,20 @@
 
 /* Stacking containers on top of eachother for mobile devices */
 @media (max-width: 800px) {
-	.main-left,
-	.main-right {
-			width: 100%;
+	.main-left {
+		width: 100%;
+		height: calc(50% - 8px);
 	}
 
 	.main-right {
+		width: 100%;
 		margin-top: -8px;
 		margin-left: 8px;
+		height: calc(50% + 16px);
+	}
+
+	.main-container {
+		height: 200vh;
 	}
 }
 
