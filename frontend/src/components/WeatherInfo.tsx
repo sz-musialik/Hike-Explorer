@@ -18,9 +18,11 @@ interface WeatherInfoProps {
 }
 
 const WeatherInfo = ( {selectedPeak, weather}: WeatherInfoProps ) => {
-	if (!selectedPeak) {
+	if (!weather) {
 		return (
-			<div>Select a Peak!</div>
+			<div className='weather-fetch-failed'>
+				<span>Weather fetching failed!</span>
+			</div>
 		)
 	}
 

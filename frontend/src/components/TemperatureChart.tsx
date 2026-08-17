@@ -92,6 +92,7 @@ const TemperatureChart = ({hourWeather}: TemperatureChartProps) => {
 					dataKey="temperature"
 					yAxisId="temperature"
 					stroke="#ffffff"
+					strokeWidth='2px'
 					fill="#ffffff"
 					fillOpacity={0.5}
 				/>
@@ -100,7 +101,7 @@ const TemperatureChart = ({hourWeather}: TemperatureChartProps) => {
 					yAxisId="precipitation"
 					dataKey="precipitation"
 					name="Precipitation"
-					fill='#3b82f6'
+					fill='var(--color-blue)'
 				/>
 			</ComposedChart>
 		</ResponsiveContainer>

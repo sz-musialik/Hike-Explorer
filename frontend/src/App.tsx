@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import './App.css';
-// import Navbar from './components/Navbar.tsx';
 import HikeInfo from './components/HikeInfo.tsx';
 import HikeMap from './components/HikeMap.tsx';
 import WeatherInfo from './components/WeatherInfo.tsx';

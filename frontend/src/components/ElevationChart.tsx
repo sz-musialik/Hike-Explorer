@@ -39,7 +39,15 @@ const ElevationChart = ( {elevation}: ElevationChartProps ) => {
 
 	return (
 		<ResponsiveContainer height='100%' width='100%'>
-			<AreaChart data={chartData}>
+			<AreaChart
+				data={chartData}
+				margin={{
+					top: 16,
+					right: 16,
+					bottom: 16,
+					left: 16,
+				}}
+			>
 				<Area
 					name="Height"
 					type="monotone"
@@ -48,12 +56,14 @@ const ElevationChart = ( {elevation}: ElevationChartProps ) => {
 					// fill="var(--color-light-green)"
 					stroke='var(--color-dark-green)'
 					fill='var(--color-green)'
+					strokeWidth='2px'
 					fillOpacity={0.5}
 				/>
 
 				<XAxis 
 					dataKey="pathPoint"
 					tick={false}
+					height={5}
 				/>
 
 				<YAxis

@@ -1,6 +1,6 @@
 import './FutureWeatherChart.css';
-import sunIcon from '../assets/sun-icon.svg';
-import moonIcon from '../assets/moon-icon.svg';
+import sunIcon from '../assets/conditions/wi-sunrise.svg';
+import moonIcon from '../assets/conditions/wi-moonrise.svg';
 import TemperatureChart from './TemperatureChart.tsx';
 import type { DailyWeather, HourlyWeather } from '../types/weather';
 

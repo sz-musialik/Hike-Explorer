@@ -42,6 +42,7 @@ const Map = ( {setSelectedPeak, setWeather, setElevation}: HikeMapProps ) => {
 	const [paths, setPaths] = useState<HikingPath[]>([]);
 	const iconSize:number = 16;
 	const maxElevationPoints = 100;
+	const defaultCenter = [50.061, 19.937];
 
 	const peakMarkerIcon = L.icon({
 		iconUrl: peakIcon,
@@ -66,7 +67,7 @@ const Map = ( {setSelectedPeak, setWeather, setElevation}: HikeMapProps ) => {
 	}
 
 	const GetWeather = async (lat: number, lng: number) => {
-		console.log("Lat: ", lat, " Lng: ", lng);
+		// console.log("GetWeather: Lat: ", lat, " Lng: ", lng);
 
 		try {
 			const response = await fetch(`http://127.0.0.1:5133/api/weather?lat=${lat}&lng=${lng}`)
@@ -74,10 +75,12 @@ const Map = ( {setSelectedPeak, setWeather, setElevation}: HikeMapProps ) => {
 			if (!response.ok) {
 				throw new Error(`Weather request failed: ${response.status}`);
 			}
+			// console.log("GetWeather: response ok");
 
 			const data: WeatherResponse = await response.json();
 
 			setWeather(data);
+			// console.log("GetWeather: data set");
 		} catch (error) {
 			console.error("Error fetching data: ", error);
 		}
@@ -123,9 +126,12 @@ const Map = ( {setSelectedPeak, setWeather, setElevation}: HikeMapProps ) => {
 
 	return (
 		<MapContainer
-			center={[50.061, 19.937]}
+			center={[defaultCenter[0], defaultCenter[1]]}
 			zoom={13}
 			style={{ height: '100%', width: '100%', borderRadius: '0.25rem', overflow: 'hidden' }}
+			whenReady={() => {
+				GetWeather(defaultCenter[0], defaultCenter[1])
+			}}
 		>
 			<TileLayer
 				attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -160,7 +166,8 @@ const Map = ( {setSelectedPeak, setWeather, setElevation}: HikeMapProps ) => {
 						coordinate.latitude,
 						coordinate.longitude,
 					])}
-					color='red'
+					color='var(--color-dark-blue)'
+					weight={4}
 					eventHandlers={{
 						click: () => {
 							// Disable fetching new peaks from Api

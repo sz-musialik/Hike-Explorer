@@ -20,8 +20,9 @@
 }
 
 .daytime-icon {
-	width: 24px;
+	width: 48px;
 	margin: 12px;
+	fill: red;
 }
 
 .daytime-item-text {
