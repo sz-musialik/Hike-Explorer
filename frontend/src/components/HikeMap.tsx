@@ -5,8 +5,10 @@ import HikeMapEvents from './HikeMapEvents.tsx';
 import { useState } from 'react';
 import L from 'leaflet';
 import peakIcon from '../assets/peak-icon.png';
+import  { toast } from 'react-toastify';
 import type { Dispatch, SetStateAction } from 'react';
 import type { WeatherResponse } from '../types/weather.ts';
+import { Flip } from 'react-toastify/unstyled';
 
 interface HikingPeak {
 	id: number;
@@ -63,6 +65,17 @@ const Map = ( {setSelectedPeak, setWeather, setElevation}: HikeMapProps ) => {
 			setPaths(data);
 		} catch (error) {
 			console.error("Error fetching data: ", error);
+			toast.error('Couldn\'t load routes data.', {
+				position: "bottom-center",
+				autoClose: 5000,
+				hideProgressBar: false,
+				closeOnClick: false,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+				theme: "colored",
+				transition: Flip,
+			});
 		}
 	}
 
@@ -83,6 +96,17 @@ const Map = ( {setSelectedPeak, setWeather, setElevation}: HikeMapProps ) => {
 			// console.log("GetWeather: data set");
 		} catch (error) {
 			console.error("Error fetching data: ", error);
+			toast.error('Couldn\'t load Weather data.', {
+				position: "bottom-center",
+				autoClose: 5000,
+				hideProgressBar: false,
+				closeOnClick: false,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+				theme: "colored",
+				transition: Flip,
+			});
 		}
 	}
 
@@ -120,7 +144,17 @@ const Map = ( {setSelectedPeak, setWeather, setElevation}: HikeMapProps ) => {
 			setElevation(data);
 		} catch (error) {
 			console.error("Error fetching Elevation data: ", error);
-		} finally {
+			toast.error('Couldn\'t load elevation data.', {
+				position: "bottom-center",
+				autoClose: 5000,
+				hideProgressBar: false,
+				closeOnClick: false,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+				theme: "colored",
+				transition: Flip,
+			});
 		}
 	}
 

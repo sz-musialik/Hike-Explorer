@@ -4,6 +4,8 @@ import HikeInfo from './components/HikeInfo.tsx';
 import HikeMap from './components/HikeMap.tsx';
 import WeatherInfo from './components/WeatherInfo.tsx';
 import type { WeatherResponse } from './types/weather.ts';
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 interface HikingPeak {
 	id: number;
@@ -41,8 +43,9 @@ function App() {
 					</div>
 				</div>
 			</div>
+
+			<ToastContainer aria-label='Notification'/>
     </div>
   )
 }
-
 export default App

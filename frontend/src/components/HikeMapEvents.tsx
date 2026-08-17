@@ -1,5 +1,7 @@
 import type { Dispatch, SetStateAction } from 'react';
 import { useMapEvents } from 'react-leaflet';
+import  { toast } from 'react-toastify';
+import { Flip } from 'react-toastify/unstyled';
 
 interface HikingPeak {
 	id: number;
@@ -38,6 +40,17 @@ const HikeMapEvents = ({ setPeaks }: HikeMapEventsProps) => {
 				setPeaks(data);
 			} catch (error) {
 				console.error("Error fetching peaks: ", error);
+				toast.error('Couldn\'t load peaks data.', {
+					position: "bottom-center",
+					autoClose: 5000,
+					hideProgressBar: false,
+					closeOnClick: false,
+					pauseOnHover: true,
+					draggable: true,
+					progress: undefined,
+					theme: "colored",
+					transition: Flip,
+				});
 			}
 		},
 	});
