@@ -1,12 +1,12 @@
 import './CurrentWeatherCard.css';
-import sunIcon from '../assets/sun-icon.svg';
-import moonIcon from '../assets/moon-icon.svg';
-import cloudySun from '../assets/cloudy-sun-icon.svg';
-import cloudyMoon from '../assets/cloudy-moon-icon.svg';
-import fogIcon from '../assets/fog-icon.svg';
-import snowIcon from '../assets/snow-icon.png';
-import thunderIcon from '../assets/thunder-icon.png';
-import heavyRain from '../assets/heavy-rain.png';
+import sunIcon from '../assets/weather/wi-day-sunny.svg';
+import moonIcon from '../assets/weather/wi-night-clear.svg';
+import cloudySun from '../assets/weather/wi-day-cloudy.svg';
+import cloudyMoon from '../assets/weather/wi-night-alt-cloudy.svg';
+import fogIcon from '../assets/weather/wi-fog.svg';
+import snowIcon from '../assets/weather/wi-snow.svg';
+import thunderIcon from '../assets/weather/wi-thunderstorm.svg';
+import heavyRain from '../assets/weather/wi-rain.svg';
 import type { CurrentWeather } from '../types/weather';
 
 interface CurrentWeatherCardProps {
@@ -75,4 +75,3 @@ const CurrentWeatherCard = ({currWeather}: CurrentWeatherCardProps) => {
 	)
 }
 export default CurrentWeatherCard;
-

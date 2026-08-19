@@ -200,7 +200,7 @@ const Map = ( {setSelectedPeak, setWeather, setElevation}: HikeMapProps ) => {
 						coordinate.latitude,
 						coordinate.longitude,
 					])}
-					color='var(--color-dark-blue)'
+					color='var(--color-dark-red)'
 					weight={4}
 					eventHandlers={{
 						click: () => {

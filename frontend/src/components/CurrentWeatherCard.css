@@ -10,10 +10,15 @@
 }
 
 .current-weather-icon-container img {
-	width: 256px;
+	width: 192px;
+}
+
+.current-temp, .apparent-temp {
+	color: var(--color-warm-white);
+	font-weight: bolder;
 }
 
 .current-temp {
-	font-size: 3rem;
+	font-size: 5rem;
 	font-weight: bolder;
 }

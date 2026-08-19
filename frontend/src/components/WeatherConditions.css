@@ -2,22 +2,12 @@
 	width: 100%;
 	height: 20%;
 
-	/* background-color: plum; */
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 8px;
 
-	display: flex;
-	flex-wrap: wrap;
-}
-
-.conditions-container {
-	width: 100%;
-	display: flex;
-	justify-content: space-between;
-	flex-wrap: wrap;
-	font-weight: 600;
-	color: var(--color-soft-cream);
-
-	margin-bottom: 8px;
-	/* background-color: yellow; */
+	box-sizing: border-box;
+	padding: 16px 0;
 }
 
 .conditions-wind-container {

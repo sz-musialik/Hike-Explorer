@@ -1,0 +1,22 @@
+.weather-card {
+	background-color: var(--color-red);
+	border-radius: 0.25rem;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.weather-card-icon {
+	width: 36px;
+}
+
+.weather-card-title, .weather-card-value {
+	font-size: 0.8rem;
+	color: var(--color-warm-white);
+}
+
+.weather-card-title {
+	font-weight: bold;
+}

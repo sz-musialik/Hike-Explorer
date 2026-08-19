@@ -91,9 +91,9 @@ const TemperatureChart = ({hourWeather}: TemperatureChartProps) => {
 					type="monotone"
 					dataKey="temperature"
 					yAxisId="temperature"
-					stroke="#ffffff"
+					stroke="var(--color-red)"
 					strokeWidth='2px'
-					fill="#ffffff"
+					fill="var(--color-red)"
 					fillOpacity={0.5}
 				/>
 

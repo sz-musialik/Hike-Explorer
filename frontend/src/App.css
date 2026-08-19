@@ -37,7 +37,7 @@
 }
 
 /* Stacking containers on top of eachother for mobile devices */
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
 	.main-left {
 		width: 100%;
 		height: calc(50% - 8px);
@@ -87,7 +87,7 @@
 	height: calc(100% - 32px);
 	width: 100%;
 
-	background-color: var(--color-dark-orange);
+	background-color: var(--color-dark-red);
 	/* display: flex; */
 	/* justify-content: center; */
 }
