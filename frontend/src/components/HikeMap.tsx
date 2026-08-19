@@ -62,6 +62,20 @@ const Map = ( {setSelectedPeak, setWeather, setElevation}: HikeMapProps ) => {
 
 			const data: HikingPath[] = await response.json();
 
+			if (data.length === 0) {
+				toast.info('No routes longer than 1 km found.', {
+					position: "bottom-center",
+					autoClose: 5000,
+					hideProgressBar: false,
+					closeOnClick: false,
+					pauseOnHover: true,
+					draggable: true,
+					progress: undefined,
+					theme: "colored",
+					transition: Flip,
+				});
+			}
+
 			setPaths(data);
 		} catch (error) {
 			console.error("Error fetching data: ", error);

@@ -7,7 +7,40 @@ namespace HikeExplorer.API.Services;
 
 public class OverpassService
 {
+	const double minPathLengthMeters = 1000;
+
 	private readonly HttpClient _httpClient;
+
+	private static double CalculatePathLength(List<CoordinateDto> coordinates)
+	{
+		double length = 0;
+
+		for (int i = 1; i < coordinates.Count; i++)
+		{
+			length += CalculateDistance(coordinates[i - 1], coordinates[i]);
+		}
+
+		return length;
+	}
+
+	private static double CalculateDistance(CoordinateDto first, CoordinateDto second)
+	{
+		// Earths radius in meters
+		const double radius = 6371000;
+
+		var lat1 = first.Latitude * Math.PI / 180;
+		var lat2 = second.Latitude * Math.PI / 180;
+
+		var deltaLat = (second.Latitude - first.Latitude) * Math.PI / 180;
+    var deltaLng = (second.Longitude - first.Longitude) * Math.PI / 180;
+
+    var a = Math.Sin(deltaLat / 2) * Math.Sin(deltaLat / 2) + Math.Cos(lat1)
+					* Math.Cos(lat2) * Math.Sin(deltaLng / 2) * Math.Sin(deltaLng / 2);
+
+    var c = 2 * Math.Atan2(Math.Sqrt(a), Math.Sqrt(1 - a));
+
+    return radius * c;
+	}
 
 	public OverpassService(
 		HttpClient httpClient
@@ -180,6 +213,13 @@ public class OverpassService
 						path.Coordinates.Add(coordinate);
 					}
 				}
+
+				// Skip paths shorter than 1 km
+				if (CalculatePathLength(path.Coordinates) < minPathLengthMeters)
+				{
+					continue;
+				}
+
 				result.Add(path);
 			}
 		}
